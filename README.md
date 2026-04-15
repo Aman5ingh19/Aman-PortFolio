@@ -1,14 +1,26 @@
 # Aman Singh - Portfolio Website
 
-A modern, professional full stack developer portfolio website featuring a dark theme, smooth animations, and responsive design.
+A modern, professional full stack developer portfolio website featuring a dark theme, smooth animations, Three.js 3D background, and responsive design.
 
-## Features
+## 👨‍💻 About
+
+Computer Science Engineering student with a strong foundation in full stack development and data structures and algorithms. Skilled in building scalable web applications using the MERN Stack and Python. Familiar with machine learning concepts with hands-on experience through a research-based project.
+
+**Live Demo**: Open `index.html` directly in your browser to see the portfolio in action.
+
+**Repository**: [GitHub - Aman PortFolio](https://github.com/Aman5ingh19/Aman-Portfolio)
+
+
+
+## ✨ Features
 
 - **Modern Dark Theme**: Professional dark color scheme with gradient accents
+- **Three.js 3D Background**: Animated particles and geometric shapes
 - **Fully Responsive**: Optimized for mobile, tablet, and desktop devices
 - **Smooth Animations**: Scroll-based animations using Intersection Observer API
 - **Interactive Navigation**: Fixed navbar with active link highlighting and mobile hamburger menu
 - **Contact Form**: Client-side validation with user-friendly error messages
+- **Downloadable Resume**: One-click resume download button
 - **Accessibility**: WCAG AA compliant with keyboard navigation support
 - **Performance Optimized**: Fast loading with minimal dependencies
 

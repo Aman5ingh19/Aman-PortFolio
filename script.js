@@ -111,6 +111,79 @@ function initThreeJS() {
 }
 
 // ===================================
+// Theme System
+// ===================================
+
+const THEMES = ['dark', 'light'];
+const THEME_STORAGE_KEY = 'portfolio-theme';
+
+function initThemeSystem() {
+  // Check system preference first
+  let savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  
+  if (!savedTheme) {
+    // Use system preference if no saved theme
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    savedTheme = prefersDark ? 'dark' : 'light';
+  }
+  
+  setTheme(savedTheme);
+}
+
+function setTheme(themeName) {
+  if (!THEMES.includes(themeName)) {
+    themeName = 'dark';
+  }
+  
+  if (themeName === 'dark') {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', themeName);
+  }
+  
+  // Update button icon and title
+  const themeToggle = document.querySelector('.theme-toggle');
+  if (themeToggle) {
+    if (themeName === 'light') {
+      themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+      themeToggle.title = 'Switch to Dark Mode';
+    } else {
+      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+      themeToggle.title = 'Switch to Light Mode';
+    }
+  }
+  
+  localStorage.setItem(THEME_STORAGE_KEY, themeName);
+}
+
+function getNextTheme() {
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+  const currentIndex = THEMES.indexOf(currentTheme);
+  const nextIndex = (currentIndex + 1) % THEMES.length;
+  return THEMES[nextIndex];
+}
+
+// Theme toggle button handler
+const themeToggle = document.querySelector('.theme-toggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const nextTheme = getNextTheme();
+    setTheme(nextTheme);
+    
+    // Add rotation animation
+    themeToggle.style.transform = 'rotate(360deg)';
+    setTimeout(() => {
+      themeToggle.style.transform = 'rotate(0deg)';
+    }, 300);
+  });
+  
+  // Listen for system theme changes
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    setTheme(e.matches ? 'dark' : 'light');
+  });
+}
+
+// ===================================
 // Navigation Functionality
 // ===================================
 
@@ -387,6 +460,9 @@ window.addEventListener('scroll', debounce(highlightActiveSection, 100));
 // ===================================
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize theme system
+  initThemeSystem();
+  
   // Initialize Three.js background
   initThreeJS();
   
