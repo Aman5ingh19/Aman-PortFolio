@@ -60,33 +60,6 @@ Edit `index.html` to update:
 
 ### Customize Colors
 
-Edit CSS custom properties in `style.css`:
-
-```css
-:root {
-  --accent-primary: #3b82f6;  /* Primary accent color */
-  --accent-secondary: #8b5cf6; /* Secondary accent color */
-  /* ... other colors */
-}
-```
-
-### Add More Projects
-
-Add new project cards in the projects section of `index.html`:
-
-```html
-<div class="project-card" data-animate>
-  <h3 class="project-title">Your Project Name</h3>
-  <p class="project-description">Description</p>
-  <div class="project-tech">
-    <span class="tech-tag">Tech 1</span>
-    <span class="tech-tag">Tech 2</span>
-  </div>
-  <ul class="project-features">
-    <li>Feature 1</li>
-    <li>Feature 2</li>
-  </ul>
-</div>
 ```
 
 ## Browser Support
