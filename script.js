@@ -472,3 +472,62 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add loaded class to body for any CSS transitions
   document.body.classList.add('loaded');
 });
+
+// ===================================
+// Certificate Modal Viewer
+// ===================================
+
+const certModal       = document.getElementById('cert-modal');
+const certModalIframe = document.getElementById('cert-modal-iframe');
+const certModalImg    = document.getElementById('cert-modal-img');
+const certModalTitle  = document.getElementById('cert-modal-title');
+const certModalDL     = document.getElementById('cert-modal-download');
+const certModalClose  = document.getElementById('cert-modal-close');
+
+function openCertModal(filePath, type, title) {
+  certModalTitle.textContent = title;
+  certModalDL.href = filePath;
+  certModalDL.setAttribute('download', filePath.split('/').pop());
+
+  if (type === 'image') {
+    certModalImg.src = filePath;
+    certModalImg.style.display = 'block';
+    certModalIframe.style.display = 'none';
+    certModalIframe.src = '';
+  } else {
+    // PDF — use browser's built-in PDF viewer via iframe
+    certModalIframe.src = filePath;
+    certModalIframe.style.display = 'block';
+    certModalImg.style.display = 'none';
+    certModalImg.src = '';
+  }
+
+  certModal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  certModalClose.focus();
+}
+
+function closeCertModal() {
+  certModal.style.display = 'none';
+  document.body.style.overflow = '';
+  // Clear sources after transition
+  setTimeout(() => {
+    certModalIframe.src = '';
+    certModalImg.src = '';
+  }, 300);
+}
+
+// Close button click
+certModalClose.addEventListener('click', closeCertModal);
+
+// Click on backdrop (outside modal content) to close
+certModal.addEventListener('click', (e) => {
+  if (e.target === certModal) closeCertModal();
+});
+
+// Escape key to close
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && certModal.style.display === 'flex') {
+    closeCertModal();
+  }
+});

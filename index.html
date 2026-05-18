@@ -316,12 +316,6 @@
             </div>
         </div>
     </section>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Education Section -->
     <section id="education" class="education-section">
@@ -367,8 +361,11 @@
                         <span class="tech-tag">Google Colab</span>
                     </div>
                     <div class="cert-actions">
-                        <a href="Research Paper Certificate .jpg" target="_blank" class="cert-btn">
+                        <button onclick="openCertModal('Research Paper Certificate .jpg', 'image', 'Research Publication Certificate')" class="cert-btn">
                             <i class="fas fa-eye"></i> View Certificate
+                        </button>
+                        <a href="Research Paper Certificate .jpg" download class="cert-btn cert-btn-secondary">
+                            <i class="fas fa-download"></i> Download
                         </a>
                     </div>
                 </div>
@@ -387,9 +384,9 @@
                         <span class="tech-tag">DBMS</span>
                     </div>
                     <div class="cert-actions">
-                        <a href="AMAN SINGH DBMS CERTIFICATE.pdf" target="_blank" class="cert-btn">
+                        <button onclick="openCertModal('AMAN SINGH DBMS CERTIFICATE.pdf', 'pdf', 'DBMS Certificate')" class="cert-btn">
                             <i class="fas fa-eye"></i> View Certificate
-                        </a>
+                        </button>
                         <a href="AMAN SINGH DBMS CERTIFICATE.pdf" download class="cert-btn cert-btn-secondary">
                             <i class="fas fa-download"></i> Download
                         </a>
@@ -411,9 +408,9 @@
                         <span class="tech-tag">Mongo DB Atlas</span>
                     </div>
                     <div class="cert-actions">
-                        <a href="Aman Singh IBM .pdf" target="_blank" class="cert-btn">
+                        <button onclick="openCertModal('Aman Singh IBM .pdf', 'pdf', 'IBM Full Stack Developer Certificate')" class="cert-btn">
                             <i class="fas fa-eye"></i> View Certificate
-                        </a>
+                        </button>
                         <a href="Aman Singh IBM .pdf" download class="cert-btn cert-btn-secondary">
                             <i class="fas fa-download"></i> Download
                         </a>
@@ -434,9 +431,9 @@
                         <span class="tech-tag">JavaScript</span>
                     </div>
                     <div class="cert-actions">
-                        <a href="(2301010352) Unified Mentor (1).pdf" target="_blank" class="cert-btn">
+                        <button onclick="openCertModal('(2301010352) Unified Mentor (1).pdf', 'pdf', 'Unified Mentor Web Developer Certificate')" class="cert-btn">
                             <i class="fas fa-eye"></i> View Certificate
-                        </a>
+                        </button>
                         <a href="(2301010352) Unified Mentor (1).pdf" download class="cert-btn cert-btn-secondary">
                             <i class="fas fa-download"></i> Download
                         </a>
@@ -457,9 +454,9 @@
                         <span class="tech-tag">MS Excel</span>
                     </div>
                     <div class="cert-actions">
-                        <a href="Aman Singh Certificate Data Analysis.pdf" target="_blank" class="cert-btn">
+                        <button onclick="openCertModal('Aman Singh Certificate Data Analysis.pdf', 'pdf', 'Deloitte Data Analytics Certificate')" class="cert-btn">
                             <i class="fas fa-eye"></i> View Certificate
-                        </a>
+                        </button>
                         <a href="Aman Singh Certificate Data Analysis.pdf" download class="cert-btn cert-btn-secondary">
                             <i class="fas fa-download"></i> Download
                         </a>
@@ -479,17 +476,14 @@
                         <span class="tech-tag">MS Excel</span>
                     </div>
                     <div class="cert-actions">
-                        <a href="AMAN SINGH Certificate.pdf" target="_blank" class="cert-btn">
+                        <button onclick="openCertModal('AMAN SINGH Certificate.pdf', 'pdf', 'Google Analytics Certificate')" class="cert-btn">
                             <i class="fas fa-eye"></i> View Certificate
-                        </a>
+                        </button>
                         <a href="AMAN SINGH Certificate.pdf" download class="cert-btn cert-btn-secondary">
                             <i class="fas fa-download"></i> Download
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
             </div>
         </div>
     </section>
@@ -530,6 +524,27 @@
     <footer class="footer">
         <p>&copy; 2026 Aman Singh. All rights reserved.</p>
     </footer>
+
+    <!-- Certificate Viewer Modal -->
+    <div id="cert-modal" class="cert-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="cert-modal-title" style="display:none;">
+        <div class="cert-modal-content">
+            <div class="cert-modal-header">
+                <h3 id="cert-modal-title" class="cert-modal-title"></h3>
+                <div class="cert-modal-actions">
+                    <a id="cert-modal-download" href="#" download class="cert-modal-btn">
+                        <i class="fas fa-download"></i> Download
+                    </a>
+                    <button id="cert-modal-close" class="cert-modal-close" aria-label="Close certificate viewer">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="cert-modal-body">
+                <iframe id="cert-modal-iframe" src="" title="Certificate Viewer" class="cert-modal-iframe"></iframe>
+                <img id="cert-modal-img" src="" alt="Certificate" class="cert-modal-img" style="display:none;">
+            </div>
+        </div>
+    </div>
 
     <!-- Three.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
