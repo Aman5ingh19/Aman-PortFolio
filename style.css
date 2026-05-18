@@ -14,8 +14,8 @@
   
   /* Accent Colors */
   --accent-primary: #a89b8b;
-  --accent-secondary: #8b5cf6;
-  --accent-gradient: linear-gradient(135deg, #a89b8b, #8b5cf6);
+  --accent-secondary: #97949e;
+  --accent-gradient: linear-gradient(135deg, #a89b8b, #b1afb4);
   
   /* Border Colors */
   --border-primary: #2a2a2a;
